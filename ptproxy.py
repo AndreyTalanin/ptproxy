@@ -246,7 +246,7 @@ def main():
             ptthr.start()
             PTREADY.wait()
             host, port = CFG['local'].split(':')
-            loop = asyncio.get_event_loop()
+            loop = asyncio.new_event_loop()
             loop.run_until_complete(
                 asyncio.start_server(handle_client, host=host, port=int(port)))
             loop.run_forever()
